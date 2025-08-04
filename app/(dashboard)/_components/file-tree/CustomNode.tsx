@@ -5,11 +5,10 @@ import { NodeModel } from "@minoru/react-dnd-treeview";
 import { CustomData } from "@/types/CustomData";
 import { TypeIcon } from "@/components/shared/TypeIcon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from "next/navigation";
+import { faChevronRight, faPen } from "@fortawesome/free-solid-svg-icons";
 import { Formik, Form, Field } from "formik";
 import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
-import { faEye, faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
 import DeleteButton from "../buttons/DeleteButton";
 import Link from "next/link";
 import OutsideAlerter from "@/components/shared/OutsideAlerter";
@@ -27,8 +26,6 @@ type Props = {
 export const CustomNode: React.FC<Props> = (props) => {
   const { tree, setTree } = useTree();
   const indent = props.depth * 24;
-
-  const router = useRouter();
 
   const handleToggleFile = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -66,9 +63,7 @@ export const CustomNode: React.FC<Props> = (props) => {
     <div
       className={`group relative tree-node rounded-sm component-bg-custom-hover flex `}
       style={{ paddingInlineStart: indent }}
-      onClick={(e) => {
-        props.node.droppable ? handleToggleFolder(e) : handleToggleFile(e);
-      }
+      onClick={(e) => { props.node.droppable ? handleToggleFolder(e) : handleToggleFile(e);}
       }
     >
       <div className={`flex gap-1 rounded-sm py-1 px-2 w-full ${props.node?.data?.new && 'border border-blue-200 bg-blue-100'} $p`}>

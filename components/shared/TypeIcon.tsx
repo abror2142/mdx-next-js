@@ -1,4 +1,4 @@
-import { faFileText, faFolder, faImage,  faFile } from "@fortawesome/free-regular-svg-icons";
+import { faFileText, faImage,  faFile } from "@fortawesome/free-regular-svg-icons";
 import { faFileCsv } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

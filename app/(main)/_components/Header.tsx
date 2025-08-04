@@ -1,7 +1,6 @@
 'use client'
 
-import { faSun } from "@fortawesome/free-regular-svg-icons";
-import { faMoon, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Field, Form, Formik } from "formik";
 import { useTheme } from "next-themes";

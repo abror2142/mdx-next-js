@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faImage } from "@fortawesome/free-regular-svg-icons";
 import { Formik, Form, Field } from "formik";
-import { faCloudUpload, faUpload, faX } from "@fortawesome/free-solid-svg-icons";
+import { faCloudUpload, faX } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 interface ImageUploaderProps {
@@ -14,18 +14,11 @@ interface ImageUploaderProps {
 export default function ImageUploader({addImage}: ImageUploaderProps) {
     const [file, setFile] = useState<File | null>(null);
     const [open, setOpen] = useState(false);
-    const [uploading, setUploading] = useState(false);
     const [url, setUrl] = useState<string | null>(null);
-    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-    const [uploadedPath, setUploadedPath] = useState<string | null>(null);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const selected = e.target.files?.[0] || null;
         setFile(selected);
-        if (selected) {
-            setPreviewUrl(URL.createObjectURL(selected));
-            setUploadedPath(null);
-        }
     };
 
     const handleUpload = async () => {
@@ -34,7 +27,6 @@ export default function ImageUploader({addImage}: ImageUploaderProps) {
         formData.append('file', file);
 
         try {
-            setUploading(true);
             const { data } = await axios.post('/api/upload', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
@@ -42,9 +34,7 @@ export default function ImageUploader({addImage}: ImageUploaderProps) {
         } catch (error) {
             console.error('Upload error:', error);
             alert('Upload failed.');
-        } finally {
-            setUploading(false);
-        }
+        } 
     };
     
     const handleSave = (alt: string, title: string, caption: string) => {

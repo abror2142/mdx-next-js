@@ -32,6 +32,7 @@ export async function DELETE(
     await unlink(filePath);
     return NextResponse.json({ message: 'File deleted successfully' });
   } catch (err) {
+    console.error('Error deleting file:', err);
     return NextResponse.json({ error: 'File not found or could not be deleted' }, { status: 404 });
   }
 }

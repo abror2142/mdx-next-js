@@ -65,8 +65,8 @@ function AdminFileTree () {
                             }}
                             sort={false}
                             insertDroppableFirst={false}
-                            canDrop={(tree, { dragSource, dropTargetId, dropTarget }) => {
-                                if (dragSource?.parent === dropTargetId) {
+                            canDrop={(tree, { dragSource, dropTargetId }) => {
+                                if ((dragSource?.parent === dropTargetId) && tree) {
                                     return true;
                                 }
                             }}
