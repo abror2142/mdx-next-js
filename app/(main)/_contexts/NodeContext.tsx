@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, ReactNode } from 'react';
 import { NodeModel } from '@minoru/react-dnd-treeview';
-import { CustomData } from '@/types/types';
+import { CustomData } from '@/types/CustomData';
 
 type NodeContextType = {
    selectedNode: NodeModel<CustomData> | null;

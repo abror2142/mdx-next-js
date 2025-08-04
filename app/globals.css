@@ -5,7 +5,6 @@
 
 @plugin "@tailwindcss/typography";
 
-
 :root {
   /* example light-mode values: */
   --color-bg: theme('colors.gray.50');         /* you can keep theme() here */

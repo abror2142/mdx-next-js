@@ -11,11 +11,11 @@ import {
   MultiBackend,
   getBackendOptions
 } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/types";
+import { CustomData } from "@/types/CustomData";
 import axios from "axios";
 import NewFolder from "./NewFolder";
 import NewFile from "./NewFile";
-import { useTree } from "@/context/TreeContext";
+import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
 import OutsideAlerter from "@/components/shared/OutsideAlerter";
 
 function AdminFileTree () {

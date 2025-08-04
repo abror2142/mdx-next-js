@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useTree } from "@/context/TreeContext";
+import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
 import axios from "axios";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/types";
+import { CustomData } from "@/types/CustomData";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 

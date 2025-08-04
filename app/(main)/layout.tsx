@@ -1,9 +1,9 @@
 'use client'
 
-import { NodeContextProvider } from "@/context/NodeContext";
-import Header from "@/components/Header";
-import UserFileTree from "@/components/file-tree/UserFileTree";
-import Footer from "@/components/Footer";
+import { NodeContextProvider } from "@/app/(main)/_contexts/NodeContext";
+import Header from "@/app/(main)/_components/Header";
+import UserFileTree from "@/app/(main)/_components/file-tree/UserFileTree";
+import Footer from "@/app/(main)/_components/Footer";
 
 export default function UserLayout({
   children,

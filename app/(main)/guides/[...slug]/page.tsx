@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { notFound } from 'next/navigation'
-import { Preview } from '@/app/(admin)/admin/editor/Preview'
+import { Preview } from '@/app/(dashboard)/admin/editor/Preview'
 
 async function loadTree() {
   const json = await fs.readFile(path.join(process.cwd(),'public', 'config', 'order.json'),'utf8')

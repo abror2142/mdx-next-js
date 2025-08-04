@@ -5,7 +5,7 @@ import { faMoon, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Field, Form, Formik } from "formik";
 import { useTheme } from "next-themes";
-import ThemeButton from "./shared/ThemeButton";
+import ThemeButton from "../../../components/shared/ThemeButton";
 
 function Header () {
     const { setTheme, theme } = useTheme();

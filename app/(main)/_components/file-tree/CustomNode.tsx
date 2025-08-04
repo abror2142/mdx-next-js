@@ -1,9 +1,9 @@
 import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "../../types/types";
+import { CustomData } from "../../../../types/CustomData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
-import { useNode } from "@/context/NodeContext";
+import { useNode } from "@/app/(main)/_contexts/NodeContext";
 
 type Props = {
   node: NodeModel<CustomData>;

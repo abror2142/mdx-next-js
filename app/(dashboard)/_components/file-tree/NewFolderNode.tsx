@@ -1,6 +1,6 @@
 import React from "react";
 import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/types";
+import { CustomData } from "@/types/CustomData";
 import { TypeIcon } from "@/components/shared/TypeIcon";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

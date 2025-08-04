@@ -2,18 +2,18 @@
 
 import React from "react";
 import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/types";
+import { CustomData } from "@/types/CustomData";
 import { TypeIcon } from "@/components/shared/TypeIcon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 import { Formik, Form, Field } from "formik";
-import { useTree } from "@/context/TreeContext";
+import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
 import { faEye, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import DeleteButton from "../buttons/DeleteButton";
 import Link from "next/link";
 import OutsideAlerter from "@/components/shared/OutsideAlerter";
-import { cleanUrl } from "../../editor/page";
+import { cleanUrl } from "../../admin/editor/page";
 
 type Props = {
   node: NodeModel<CustomData>;

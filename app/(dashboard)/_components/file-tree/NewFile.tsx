@@ -1,10 +1,10 @@
 import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/types";
+import { CustomData } from "@/types/CustomData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 import { v4 } from "uuid";
-import { useTree } from "@/context/TreeContext";
+import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
 import axios from "axios";
 
 type NewFolderProps = {

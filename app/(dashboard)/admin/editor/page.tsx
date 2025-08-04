@@ -6,10 +6,10 @@ import ImageUploader from "./ImageUploader";
 import YouTubeVideo from "./YouTubeVideo";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
-import { useTree } from "@/context/TreeContext";
+import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import DeleteButton from "../components/buttons/DeleteButton";
+import DeleteButton from "../../_components/buttons/DeleteButton";
 
 export type FolderPath = {
     name: string | null,
