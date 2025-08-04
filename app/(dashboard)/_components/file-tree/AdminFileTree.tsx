@@ -15,7 +15,7 @@ import { CustomData } from "@/types/CustomData";
 import axios from "axios";
 import NewFolder from "./NewFolder";
 import NewFile from "./NewFile";
-import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
+import { useTree } from "../../_contexts/TreeContext";
 import OutsideAlerter from "@/components/shared/OutsideAlerter";
 
 function AdminFileTree () {

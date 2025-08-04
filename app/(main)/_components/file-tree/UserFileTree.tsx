@@ -9,12 +9,12 @@ import {
   MultiBackend,
   getBackendOptions
 } from "@minoru/react-dnd-treeview";
-import { CustomData } from "../../../../types/CustomData";
+import { CustomData } from "@/types/CustomData";
 import axios from "axios";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare, faHome, faHouse } from "@fortawesome/free-solid-svg-icons";
-import { useNode } from "@/app/(main)/_contexts/NodeContext";
+import { useNode } from "../../_contexts/NodeContext";
 import { faCaretSquareLeft, faCaretSquareRight } from "@fortawesome/free-regular-svg-icons";
 
 function UserFileTree () {

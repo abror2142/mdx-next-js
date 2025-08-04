@@ -11,28 +11,6 @@
     }
   },
   {
-    "id": "0d8f2532-4be6-4e99-b069-beff6dcf4093",
-    "parent": 0,
-    "text": "FAQ",
-    "droppable": true,
-    "data": {
-      "new": false,
-      "published": true,
-      "url": "faq"
-    }
-  },
-  {
-    "id": "55659dcc-ac6b-4fb8-8c4d-05854939e7c1",
-    "parent": "0d8f2532-4be6-4e99-b069-beff6dcf4093",
-    "text": "How to create a User Account?",
-    "droppable": false,
-    "data": {
-      "new": false,
-      "published": true,
-      "url": "how-to-create-a-user-account"
-    }
-  },
-  {
     "id": "adad5f99-7d95-4222-b501-2e6e4b10fad5",
     "parent": 0,
     "text": "Help & Support",
@@ -52,6 +30,28 @@
       "new": false,
       "url": "wine-&-dine",
       "published": true
+    }
+  },
+  {
+    "id": "0d8f2532-4be6-4e99-b069-beff6dcf4093",
+    "parent": 0,
+    "text": "FAQ",
+    "droppable": true,
+    "data": {
+      "new": false,
+      "published": true,
+      "url": "faq"
+    }
+  },
+  {
+    "id": "55659dcc-ac6b-4fb8-8c4d-05854939e7c1",
+    "parent": "0d8f2532-4be6-4e99-b069-beff6dcf4093",
+    "text": "How to create a User Account?",
+    "droppable": false,
+    "data": {
+      "new": false,
+      "published": true,
+      "url": "how-to-create-a-user-account"
     }
   }
 ]

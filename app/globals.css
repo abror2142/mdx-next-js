@@ -1,8 +1,9 @@
 @import "tailwindcss";
+
+/* Provides dark mode styles  */
 @custom-variant dark (&:where(.dark, .dark *));
 
-@tailwind utilities;
-
+/* Provides prose classes */
 @plugin "@tailwindcss/typography";
 
 :root {
