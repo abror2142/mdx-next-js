@@ -1,2 +1,106 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@tailwind utilities;
+
 @plugin "@tailwindcss/typography";
+
+
+:root {
+  /* example light-mode values: */
+  --color-bg: theme('colors.gray.50');         /* you can keep theme() here */
+  --color-text: #000000;
+  --color-component-bg: #e4e4e4;
+  --color-component-bg-hover: #f3f4f7; /* example custom component background */
+  --color-accent: theme('colors.blue.600');
+  --color-border: theme('colors.gray.300');
+}
+
+/* 2. Override them in dark mode with your custom hex */
+.dark {
+  --color-bg: #22242b;                         /* your custom dark background */
+  --color-text: #f0f0f0;      /* or use another hex if you prefer */
+  --color-component-bg: #3b3c45; /* example custom component background */
+  --color-component-bg-hover: #3e4049; /* example custom component background */
+  --color-accent: #7f9cf5;                     /* example custom accent */
+  --color-border: #3b3c45;                     /* example custom border */
+}
+
+/* 3. Utility classes to consume the vars */
+.bg-custom      { background-color: var(--color-bg); }
+.text-custom    { color:            var(--color-text); }
+.border-custom  { border-color:     var(--color-border); }
+.component-bg-custom { background-color: var(--color-component-bg); }
+.component-bg-custom-hover:hover {
+  background-color: var(--color-component-bg-hover);
+}
+
+
+@layer components {
+  .tree-node {
+    @apply flex gap-2 items-center mt-1;
+  }
+
+  .expandIconWrapper {
+    @apply flex items-center justify-center w-5 h-5 cursor-pointer
+           transition-transform ease-linear duration-100 rotate-0;
+  }
+
+  .expandIconWrapper.isOpen {
+    @apply rotate-[90deg];
+  }
+
+  .labelGridItem {
+    @apply pl-2;
+  }
+
+  .icon, .label {
+    @apply flex items-center
+  }
+
+  .dragging-source {
+    @apply inline-grid items-center
+           bg-[#1967d2] rounded
+           text-white text-[14px]
+           gap-2 grid-cols-[auto_auto]
+           py-1 px-2
+           pointer-events-none
+           /* custom shadow matching your two-part box-shadow */
+           shadow-[0_12px_24px_-6px_rgba(0,0,0,0.25),0_0_0_1px_rgba(0,0,0,0.08)];
+  }
+  .placeholder {
+    @apply absolute right-0 top-0 
+           bg-[#1967d2] h-[2px]
+           transform -translate-y-1/2;
+    }
+    .app {
+        @apply h-full
+    }
+
+    .treeRoot {
+        @apply h-full
+    }
+
+    .draggingSource {
+        @apply opacity-30
+    }
+
+    .placeholderContainer {
+        @apply relative
+    }
+
+    .dropTarget {
+        @apply bg-white
+    }
+
+}
+
+@layer utilities {
+  @keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 2s linear infinite;
+  }
+}

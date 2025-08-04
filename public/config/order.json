@@ -1,0 +1,57 @@
+[
+  {
+    "id": "e86d1736-4c65-4b9b-a851-2d69ebca9863",
+    "parent": 0,
+    "text": "Getting Started",
+    "droppable": true,
+    "data": {
+      "new": false,
+      "published": true,
+      "url": "getting-started"
+    }
+  },
+  {
+    "id": "0d8f2532-4be6-4e99-b069-beff6dcf4093",
+    "parent": 0,
+    "text": "FAQ",
+    "droppable": true,
+    "data": {
+      "new": false,
+      "published": true,
+      "url": "faq"
+    }
+  },
+  {
+    "id": "55659dcc-ac6b-4fb8-8c4d-05854939e7c1",
+    "parent": "0d8f2532-4be6-4e99-b069-beff6dcf4093",
+    "text": "How to create a User Account?",
+    "droppable": false,
+    "data": {
+      "new": false,
+      "published": true,
+      "url": "how-to-create-a-user-account"
+    }
+  },
+  {
+    "id": "adad5f99-7d95-4222-b501-2e6e4b10fad5",
+    "parent": 0,
+    "text": "Help & Support",
+    "droppable": true,
+    "data": {
+      "new": false,
+      "url": "help-&-support",
+      "published": true
+    }
+  },
+  {
+    "id": "833527fb-e2d1-41f3-9faf-c03f573e435e",
+    "parent": 0,
+    "text": "Wine & Dine",
+    "droppable": true,
+    "data": {
+      "new": false,
+      "url": "wine-&-dine",
+      "published": true
+    }
+  }
+]

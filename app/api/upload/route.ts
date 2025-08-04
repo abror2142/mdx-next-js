@@ -18,9 +18,9 @@ export const POST = async (req, res) => {
       path.join(process.cwd(), "public/uploads/" + filename),
       buffer
     );
-    return NextResponse.json({ Message: "Success", status: 201, path: "uploads/" + filename});
+    return NextResponse.json({ Message: "File uploaded", status: 201, path: "/uploads/" + filename});
   } catch (error) {
-    console.log("Error occured ", error);
-    return NextResponse.json({ Message: "Failed", status: 500 });
+    console.log("Error", error);
+    return NextResponse.json({ Message: "Upload did not completed", status: 500 });
   }
 };
