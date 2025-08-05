@@ -4,9 +4,10 @@ import { readFile, unlink } from 'fs/promises';
 import { existsSync } from 'fs';
 
 export async function GET(
+  request: NextRequest,
   context: { params: { id: string } }
 ) {
-  const { id } = await Promise.resolve(context.params);
+  const { id } = context.params;
 
   const filePath = path.join(process.cwd(), 'public', 'guides', `${id}.mdx`);
 

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
 
@@ -15,7 +15,7 @@ export default function LoginPage() {
 
     const res = await signIn('credentials', {
       redirect: false,
-      email,
+      username,
       password,
     });
 
@@ -33,10 +33,10 @@ export default function LoginPage() {
         <form onSubmit={handleLogin} className="space-y-4">
           <input
             className="w-full p-2 bg-gray-100 outline-none rounded"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            type="text"
+            placeholder="username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
           />
           <input
             className="w-full p-2 bg-gray-100 outline-none rounded"
