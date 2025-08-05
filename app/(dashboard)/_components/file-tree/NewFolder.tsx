@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
 import { NodeModel } from "@minoru/react-dnd-treeview";
 import { CustomData } from "@/types/CustomData";
-import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
+import { useTree } from "@/contexts/TreeContext";
 import { createFile } from "./NewFile";
 import { useRouter } from "next/navigation";
 

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
+import { useTree } from "@/contexts/TreeContext";
 import axios from "axios";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { NodeModel } from "@minoru/react-dnd-treeview";

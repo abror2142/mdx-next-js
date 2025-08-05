@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 import { v4 } from "uuid";
-import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
+import { useTree } from "@/contexts/TreeContext";
 import axios from "axios";
 
 type NewFolderProps = {

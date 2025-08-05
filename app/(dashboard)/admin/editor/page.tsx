@@ -6,7 +6,7 @@ import ImageUploader from "./ImageUploader";
 import YouTubeVideo from "./YouTubeVideo";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
-import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
+import { useTree } from "@/contexts/TreeContext";
 import { useRouter } from "next/navigation";
 import DeleteButton from "../../_components/buttons/DeleteButton";
 import { Suspense } from 'react'

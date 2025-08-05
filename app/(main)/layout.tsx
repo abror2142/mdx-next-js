@@ -12,16 +12,16 @@ export default function UserLayout({
 }>) {
   return (
     <NodeContextProvider>
-      <div className="grow-1 flex flex-col gap-0 bg-custom text-custom">
-        <Header/>
-        <div className="grow-1 flex">
-            <UserFileTree />
-            <div className="grow-1">
-              {children} 
-            </div>
+        <div className="grow-1 flex flex-col gap-0 bg-custom text-custom">
+          <Header/>
+          <div className="grow-1 flex">
+              <UserFileTree />
+              <div className="grow-1">
+                {children} 
+              </div>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
     </NodeContextProvider>
   );
 }

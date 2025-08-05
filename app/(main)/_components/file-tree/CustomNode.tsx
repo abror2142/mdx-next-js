@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 import { useNode } from "../../_contexts/NodeContext";
+import makeHierarchy from "../../_utils/makeHierarchy";
 
 type Props = {
   node: NodeModel<CustomData>;
@@ -18,21 +19,12 @@ export const CustomNode: React.FC<Props> = (props) => {
   const { setSelectedNode, selectedNode } = useNode();
   const router = useRouter();
   
-  const makeHierarchy = (parentId: string | number): string => {
-    const parent = props.tree.find(node => node.id === parentId);
-    if(parent && parent.droppable) {
-      return `${makeHierarchy(parent.parent)}/${parent.text.replaceAll(' ', '-').toLowerCase()}`
-    }
-    return ''
-  }
-  const hierarchy = makeHierarchy(props.node.parent) + `/${props.node.data?.url}`
-
-
+  const hierarchy = makeHierarchy({node: props.node, tree: props.tree, parentId: props.node.parent})
+  
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     setSelectedNode(props.node);
     router.push(`/guides/${hierarchy}`);
-    console.log(props.isOpen);
 
     if(props.node.droppable) 
       props.onToggle(props.node.id);

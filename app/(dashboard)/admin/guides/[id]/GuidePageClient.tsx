@@ -4,7 +4,7 @@ import { Preview } from '@/app/(dashboard)/admin/editor/Preview';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import DeleteButton from '../../../_components/buttons/DeleteButton';
-import { useTree } from '@/app/(dashboard)/_contexts/TreeContext';
+import { useTree } from '@/contexts/TreeContext';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile, faFolder, faPenToSquare } from '@fortawesome/free-regular-svg-icons';

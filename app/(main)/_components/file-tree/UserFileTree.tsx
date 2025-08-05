@@ -1,39 +1,24 @@
 'use client'
 
 import { CustomNode } from "./CustomNode";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { DndProvider } from "react-dnd";
 import {
   Tree,
-  NodeModel,
   MultiBackend,
   getBackendOptions
 } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/CustomData";
-import axios from "axios";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { useNode } from "../../_contexts/NodeContext";
 import { faCaretSquareLeft, faCaretSquareRight } from "@fortawesome/free-regular-svg-icons";
+import { useTree } from "@/contexts/TreeContext";
 
 function UserFileTree () {
-    const [treeData, setTreeData] = useState<NodeModel<CustomData>[]>([]);
+    const { tree } = useTree();
     const { selectedNode, setSelectedNode } = useNode();
     const [isOpen, setIsOpen] = useState(true);
-
-    const fetchTreeData = async () => {
-        try {
-            const response = await axios.get('/api/menu');
-            setTreeData(response.data)
-        } catch(e) {
-            console.log(e)
-        }
-    }
-
-    useEffect(() => {
-        fetchTreeData();
-    }, [])
 
     return (
         <>
@@ -52,14 +37,14 @@ function UserFileTree () {
                             <p className="text-md font-semibold px-2">Guides</p>
                             <DndProvider backend={MultiBackend} options={getBackendOptions()}>
                                 <Tree
-                                    tree={treeData}
+                                    tree={tree}
                                     rootId={0}
                                     render={(node, { depth, isOpen, onToggle }) => (
                                         <CustomNode
                                             node={node}
                                             depth={depth}
                                             isOpen={isOpen}
-                                            tree={treeData}
+                                            tree={tree}
                                             onToggle={onToggle}
                                         />
                                     )}
@@ -72,7 +57,6 @@ function UserFileTree () {
                                     sort={false}
                                     canDrop={() => false}
                                     canDrag={() => false}
-                                    
                                 />
                             </DndProvider>
                         </>

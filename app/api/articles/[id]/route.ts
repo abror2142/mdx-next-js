@@ -4,7 +4,6 @@ import { readFile, unlink } from 'fs/promises';
 import { existsSync } from 'fs';
 
 export async function GET(
-  req: NextRequest,
   context: { params: { id: string } }
 ) {
   const { id } = await Promise.resolve(context.params);

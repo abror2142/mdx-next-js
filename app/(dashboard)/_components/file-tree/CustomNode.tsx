@@ -7,7 +7,7 @@ import { TypeIcon } from "@/components/shared/TypeIcon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faPen } from "@fortawesome/free-solid-svg-icons";
 import { Formik, Form, Field } from "formik";
-import { useTree } from "@/app/(dashboard)/_contexts/TreeContext";
+import { useTree } from "@/contexts/TreeContext";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import DeleteButton from "../buttons/DeleteButton";
 import Link from "next/link";
