@@ -10,6 +10,10 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json({ error: "No files received." }, { status: 400 });
   }
 
+  if (!(file instanceof File)) {
+    return NextResponse.json({ Message: "Invalid file", status: 400 });
+  }
+
   const buffer = Buffer.from(await file.arrayBuffer());
   const filename = Date.now() + file.name.replaceAll(" ", "_");
   try {
