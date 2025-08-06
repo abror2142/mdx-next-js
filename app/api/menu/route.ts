@@ -4,6 +4,8 @@ import { readFileSync } from "fs";
 import path from "path";
 import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from 'fs'
+import { NodeModel } from "@minoru/react-dnd-treeview";
+import { CustomData } from "@/types/CustomData";
 
 export const GET = async () => {
     try {
@@ -11,18 +13,17 @@ export const GET = async () => {
         const content = readFileSync(orderFilePath, 'utf-8');
         const session = await getServerSession(authOptions);
 
-        const data = JSON.parse(content);
-        console.log("Data", data);
+        const data: NodeModel<CustomData>[] = JSON.parse(content);
         const responseData = session
           ? data
           : data.filter(item => item?.data?.published);
         return new Response(JSON.stringify(responseData), { status: 200 });
-    } catch (error) {
+    } catch (error: any) {
         return new Response(JSON.stringify({ error: 'Unable to read directory', details: error.message }), { status: 500 });
   }
 }
 
-async function writeHandler(item) {
+async function writeHandler(item: NodeModel<CustomData>) {
   const filePath = path.join(process.cwd(), 'public', 'config', 'order.json')
 
   try {

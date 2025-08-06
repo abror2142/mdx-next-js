@@ -5,9 +5,9 @@ import { existsSync } from 'fs';
 
 export async function GET(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = context.params;
+  const { id } = await params;
 
   const filePath = path.join(process.cwd(), 'public', 'guides', `${id}.mdx`);
 

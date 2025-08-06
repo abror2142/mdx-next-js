@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react"
 import AdminHeader from "./AdminHeader"
 import AdminFileTree from "./file-tree/AdminFileTree"

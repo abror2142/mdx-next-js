@@ -1,18 +1,11 @@
-'use client'
-
-import { ThemeProvider } from "next-themes";
+import Providers from "@/components/Providers";
 import "./globals.css";
-import { TreeProvider } from "@/contexts/TreeContext";
 
-export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: { children: React.ReactNode; }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen flex">
-        <ThemeProvider attribute="class" enableSystem defaultTheme="system">
-          <TreeProvider>
-            {children} 
-          </TreeProvider>
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

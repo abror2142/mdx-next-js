@@ -30,8 +30,6 @@ export const CustomNode: React.FC<Props> = (props) => {
       props.onToggle(props.node.id);
   }
 
-
-
   return (
     <div
       className={`tree-node rounded-sm flex text-sm `}

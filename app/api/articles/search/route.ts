@@ -53,7 +53,6 @@ export async function GET(
     const orderMatches = orderData.filter((item: { text: string }) =>
         item.text.toLowerCase().includes(term.toLowerCase())
     );
-    console.log("Order matches:", orderMatches);
     orderMatches.forEach((match: NodeModel<CustomData>) => {
         const screenshot = takeScreenshot(match.text, true, term);
         matches.push({

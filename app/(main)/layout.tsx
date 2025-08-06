@@ -1,5 +1,3 @@
-'use client'
-
 import { NodeContextProvider } from "@/app/(main)/_contexts/NodeContext";
 import Header from "@/app/(main)/_components/Header";
 import UserFileTree from "@/app/(main)/_components/file-tree/UserFileTree";

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useTree } from "@/contexts/TreeContext";
 import makeHierarchy from "../_utils/makeHierarchy";
 import MatchType from "../_types/MatchType";
+import { v4 } from "uuid";
 
 function SearchBar() {
     const [term, setTerm] = useState<string | null>(null);
@@ -44,7 +45,7 @@ function SearchBar() {
                 && <ul className="absolute top-9 bg-custom w-full border border-custom rounded-sm px-4 py-2 text-sm flex flex-col gap-2">
                     {
                         matches.map(match => (
-                        <li className="py-0.5 px-2 rounded-sm hover:bg-gray-100 component-bg-custom-hover">
+                        <li className="py-0.5 px-2 rounded-sm hover:bg-gray-100 component-bg-custom-hover" key={v4()}>
                             <Link href={`/guides${makeHierarchy({node: match, tree, parentId: match.parent})}`} className="flex flex-col gap-0.5" onClick={() => setTerm(null)}>
                                 {match.text}
                                 <p dangerouslySetInnerHTML={{ __html:  match?.screenshot}} className="text-[12px]"></p>

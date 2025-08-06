@@ -1,5 +1,8 @@
-import GuidesClientPage from './GuidesClientPage'
+import GuidesClientPage from "./GuidesClientPage";
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
-  return (<GuidesClientPage segments={params.slug} />)
+export default async function Page(
+  { params }: { params: Promise<{ slug: string[] }> }
+) {
+  const { slug } = await params;
+  return <GuidesClientPage segments={slug} />
 }
