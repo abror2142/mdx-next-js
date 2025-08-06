@@ -4,8 +4,7 @@ import { readFileSync } from "fs";
 import path from "path";
 import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from 'fs'
-import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/CustomData";
+import TreeNode from "@/types/TreeNode";
 
 export const GET = async () => {
     try {
@@ -13,7 +12,7 @@ export const GET = async () => {
         const content = readFileSync(orderFilePath, 'utf-8');
         const session = await getServerSession(authOptions);
 
-        const data: NodeModel<CustomData>[] = JSON.parse(content);
+        const data: TreeNode[] = JSON.parse(content);
         const responseData = session
           ? data
           : data.filter(item => item?.data?.published);
@@ -23,7 +22,7 @@ export const GET = async () => {
   }
 }
 
-async function writeHandler(item: NodeModel<CustomData>) {
+async function writeHandler(item: TreeNode) {
   const filePath = path.join(process.cwd(), 'public', 'config', 'order.json')
 
   try {

@@ -1,8 +1,7 @@
 'use client'
 
 import { FindFiledIdType } from "../_types/utilTypes"
-import { NodeModel } from "@minoru/react-dnd-treeview"
-import { CustomData } from "@/types/CustomData"
+import TreeNode from "@/types/TreeNode"
 
 function findChildBySlug({ tree, parentId, slug }: FindFiledIdType) {
   return tree.find(item => item.parent === parentId && item.data?.url === slug )
@@ -15,7 +14,7 @@ function findChildBySlug({ tree, parentId, slug }: FindFiledIdType) {
   until it reaches the final match which is the file data in this tree.
   Then match is returned with possiple undefined value in case the hierarchy doesn't match.
 */
-export default (segments: Array<string>, tree: NodeModel<CustomData>[]) => {
+export default (segments: Array<string>, tree: TreeNode[]) => {
   let parentId: string|number = 0
   let match: (typeof tree)[0] | undefined
   

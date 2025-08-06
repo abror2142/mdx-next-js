@@ -7,11 +7,10 @@ import React, { useState } from "react";
 import { DndProvider } from "react-dnd";
 import {
   Tree,
-  NodeModel,
   MultiBackend,
   getBackendOptions
 } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/CustomData";
+import TreeNode from "@/types/TreeNode";
 import axios from "axios";
 import NewFolder from "./NewFolder";
 import NewFile from "./NewFile";
@@ -20,9 +19,9 @@ import OutsideAlerter from "@/components/shared/OutsideAlerter";
 
 function AdminFileTree () {
     const { tree, setTree} = useTree();
-    const [selectedItem, setSelectedItem] = useState<NodeModel<CustomData> | null>(null);
+    const [selectedItem, setSelectedItem] = useState<TreeNode | null>(null);
 
-    const handleDrop = async (newTree: NodeModel<CustomData>[]) => {
+    const handleDrop = async (newTree: TreeNode[]) => {
         try {
             setTree(newTree);
             await axios.post('/api/menu/sync', JSON.stringify(newTree));

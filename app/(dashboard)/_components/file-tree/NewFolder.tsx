@@ -3,13 +3,13 @@ import { v4 } from "uuid"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
 import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/CustomData";
+import TreeNode, { CustomData } from "@/types/TreeNode";
 import { useTree } from "@/contexts/TreeContext";
 import { createFile } from "./NewFile";
 import { useRouter } from "next/navigation";
 
 type NewFolderProps = {
-    selectedItem: NodeModel<CustomData> | null;
+    selectedItem: TreeNode | null;
 };
 
 function NewFolder ({ selectedItem }: NewFolderProps) {
@@ -17,7 +17,7 @@ function NewFolder ({ selectedItem }: NewFolderProps) {
     const router = useRouter();
 
     const handleClick = async () => {
-        const newFolder: NodeModel<CustomData> = {
+        const newFolder: TreeNode = {
             id: v4(),
             parent: selectedItem?.id ?? 0,
             text: "",
@@ -48,7 +48,6 @@ function NewFolder ({ selectedItem }: NewFolderProps) {
                 onClick={handleClick}
             ><FontAwesomeIcon icon={faFolderPlus} /></button>
         </div>
-
     )
 }
 

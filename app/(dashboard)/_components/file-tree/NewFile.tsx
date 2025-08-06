@@ -1,5 +1,4 @@
-import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/CustomData";
+import TreeNode from "@/types/TreeNode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
@@ -8,7 +7,7 @@ import { useTree } from "@/contexts/TreeContext";
 import axios from "axios";
 
 type NewFolderProps = {
-    selectedItem: NodeModel<CustomData> | null;
+    selectedItem: TreeNode | null;
 };
 
 export const createFile = async (content: string, id: string | number) => {
@@ -30,10 +29,9 @@ export const createFile = async (content: string, id: string | number) => {
 function NewFile ({selectedItem }: NewFolderProps) {
     const router = useRouter();
     const { syncTree, tree } = useTree();
-    
 
     const handleClick = async () => {
-        const newFile: NodeModel<CustomData> = {
+        const newFile: TreeNode = {
             id: v4(),
             parent: selectedItem ? selectedItem.droppable ? selectedItem.id : selectedItem.parent : 0,
             text: "",

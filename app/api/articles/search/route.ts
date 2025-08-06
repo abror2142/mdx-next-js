@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import path from 'path';
 import { readFile } from 'fs/promises';
 import fs from 'fs';
-import { NodeModel } from '@minoru/react-dnd-treeview';
-import { CustomData } from '@/types/CustomData';
+import TreeNode from '@/types/TreeNode';
 import sanitizeHtml from 'sanitize-html';
 import MatchType from '@/app/(main)/_types/MatchType';
 
@@ -53,7 +52,7 @@ export async function GET(
     const orderMatches = orderData.filter((item: { text: string }) =>
         item.text.toLowerCase().includes(term.toLowerCase())
     );
-    orderMatches.forEach((match: NodeModel<CustomData>) => {
+    orderMatches.forEach((match: TreeNode) => {
         const screenshot = takeScreenshot(match.text, true, term);
         matches.push({
             ...match,
@@ -77,7 +76,7 @@ export async function GET(
 
   if( guideMatches.length > 0 ){
     guideMatches.map(match => {
-        const orderMatch = orderData.find((item: NodeModel<CustomData>) => item.id == match?.title);
+        const orderMatch = orderData.find((item: TreeNode) => item.id == match?.title);
         if (orderMatch && matches.find(match => match.id == orderMatch.id) === undefined) {
             matches.push({...orderMatch, screenshot: match?.screenshot});
         }

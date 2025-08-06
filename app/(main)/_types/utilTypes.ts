@@ -1,19 +1,18 @@
-import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/CustomData";
+import TreeNode from "@/types/TreeNode";
 
 export interface FindFiledIdType {
-  tree: NodeModel<CustomData>[];
+  tree: TreeNode[];
   parentId: string|number;
   slug: string;
 }
 
 export interface MakeHierarchyProps {
     parentId: string | number;
-    tree: NodeModel<CustomData>[];
-    node: NodeModel<CustomData>;
+    tree: TreeNode[];
+    node: TreeNode;
 }
 
 export interface MakeHierarchyUtilProps {
     parentId: string | number;
-    tree: NodeModel<CustomData>[];
+    tree: TreeNode[];
 }

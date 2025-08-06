@@ -1,5 +1,4 @@
-import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/CustomData";
+import TreeNode from "@/types/TreeNode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
@@ -7,11 +6,11 @@ import { useNode } from "../../_contexts/NodeContext";
 import makeHierarchy from "../../_utils/makeHierarchy";
 
 type Props = {
-  node: NodeModel<CustomData>;
+  node: TreeNode;
   depth: number;
   isOpen: boolean;
-  onToggle: (id: NodeModel["id"]) => void;
-  tree: NodeModel<CustomData>[];
+  onToggle: (id: string | number) => void;
+  tree: TreeNode[];
 };
 
 export const CustomNode: React.FC<Props> = (props) => {

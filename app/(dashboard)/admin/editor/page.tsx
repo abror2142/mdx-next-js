@@ -9,7 +9,6 @@ import { useSearchParams } from "next/navigation";
 import { useTree } from "@/contexts/TreeContext";
 import { useRouter } from "next/navigation";
 import DeleteButton from "../../_components/buttons/DeleteButton";
-import { Suspense } from 'react'
 
 export type FolderPath = {
     name: string | null,

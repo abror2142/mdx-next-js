@@ -4,7 +4,11 @@ import { Formik, Form, Field } from "formik";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
-export default function YouTubeVideo({addYoutubeVideo}) {
+interface YouTubeVideoProps {
+    addYoutubeVideo: (url: string) => void;
+}
+
+export default function YouTubeVideo({ addYoutubeVideo }: YouTubeVideoProps) {
     const [open, setOpen] = useState(false);
     const [upload, setUpload] = useState(false);
 

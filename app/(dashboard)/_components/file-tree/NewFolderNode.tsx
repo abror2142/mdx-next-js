@@ -1,18 +1,17 @@
 import React from "react";
-import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/CustomData";
+import TreeNode from "@/types/TreeNode";
 import { TypeIcon } from "@/components/shared/TypeIcon";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 type Props = {
-  node: NodeModel<CustomData>;
-  selectedItem: NodeModel<CustomData> | null;
+  node: TreeNode;
+  selectedItem: TreeNode | null;
   depth: number;
   isOpen: boolean;
-  onToggle: (id: NodeModel["id"]) => void;
-  setSelectedItem: React.Dispatch<React.SetStateAction<NodeModel<CustomData> | null>>;
+  onToggle: (id: number | string) => void;
+  setSelectedItem: React.Dispatch<React.SetStateAction<TreeNode | null>>;
 };
 
 export const NewFolderNode: React.FC<Props> = (props) => {

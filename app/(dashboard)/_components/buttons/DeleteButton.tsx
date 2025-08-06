@@ -2,13 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTree } from "@/contexts/TreeContext";
 import axios from "axios";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
-import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/CustomData";
+import TreeNode from "@/types/TreeNode";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 type NewFolderProps = {
-    node: NodeModel<CustomData>;
+    node: TreeNode;
     iconOnly?: boolean;
 };
 
@@ -17,7 +16,7 @@ function DeleteButton ({ node, iconOnly }: NewFolderProps) {
     const { syncTree, tree } = useTree();
     const router = useRouter()
 
-    const filterOutNode = (item: NodeModel<CustomData>): NodeModel<CustomData>[] => {
+    const filterOutNode = (item: TreeNode): TreeNode[] => {
         if (item.droppable) {
             const children = tree.filter(treeNode => treeNode.parent === item.id);
             return [item, ...children.flatMap(child => filterOutNode(child))];
@@ -26,7 +25,7 @@ function DeleteButton ({ node, iconOnly }: NewFolderProps) {
         }
     }
 
-    const requestDelete = async (node: NodeModel<CustomData>) => {
+    const requestDelete = async (node: TreeNode) => {
         try {
             await axios.delete(`/api/articles/${node.id}`);
         } catch(e) {
@@ -34,8 +33,8 @@ function DeleteButton ({ node, iconOnly }: NewFolderProps) {
         }
     }
 
-    const handleDelete = async (item: NodeModel<CustomData>) => {
-        const items: NodeModel<CustomData>[] = filterOutNode(item);
+    const handleDelete = async (item: TreeNode) => {
+        const items: TreeNode[] = filterOutNode(item);
 
         items.forEach(async item => {
             await requestDelete(item);

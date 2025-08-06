@@ -1,7 +1,7 @@
 import React from "react";
 import { DragLayerMonitorProps } from "@minoru/react-dnd-treeview";
 import { TypeIcon } from "@/components/shared/TypeIcon";
-import { CustomData } from "@/types/CustomData";
+import { CustomData } from "@/types/TreeNode";
 
 type Props = {
   monitorProps: DragLayerMonitorProps<CustomData>;

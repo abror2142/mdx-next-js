@@ -1,18 +1,17 @@
 'use client';
 
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { NodeModel } from '@minoru/react-dnd-treeview';
-import { CustomData } from '@/types/CustomData';
+import TreeNode from '@/types/TreeNode';
 
 type NodeContextType = {
-   selectedNode: NodeModel<CustomData> | null;
-   setSelectedNode: React.Dispatch<React.SetStateAction<NodeModel<CustomData> | null>>;
+   selectedNode: TreeNode | null;
+   setSelectedNode: React.Dispatch<React.SetStateAction<TreeNode | null>>;
 };
 
 const NodeContext = createContext<NodeContextType | undefined>(undefined);
 
 export function NodeContextProvider({ children }: { children: ReactNode }) {
-    const [selectedNode, setSelectedNode] = useState<NodeModel<CustomData> | null>(null);
+    const [selectedNode, setSelectedNode] = useState<TreeNode | null>(null);
 
     return (
         <NodeContext.Provider value={{ selectedNode, setSelectedNode }}>

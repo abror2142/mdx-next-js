@@ -1,6 +1,4 @@
-import { NodeModel } from "@minoru/react-dnd-treeview";
-import { CustomData } from "@/types/CustomData";
-
-export default interface MatchType extends NodeModel<CustomData> {
+import TreeNode from "@/types/TreeNode";
+export default interface MatchType extends TreeNode {
     screenshot: string;
 }

@@ -1,21 +1,20 @@
 'use client';
 
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { NodeModel } from '@minoru/react-dnd-treeview';
-import { CustomData } from '@/types/CustomData';
+import TreeNode from '@/types/TreeNode';
 import axios, { AxiosResponse } from 'axios';
 
 type TreeContextType = {
-    tree: NodeModel<CustomData>[];
-    setTree: React.Dispatch<React.SetStateAction<NodeModel<CustomData>[]>>;
+    tree: TreeNode[];
+    setTree: React.Dispatch<React.SetStateAction<TreeNode[]>>;
     loading: boolean;
-    syncTree: (newTree?: NodeModel<CustomData>[]) => Promise<AxiosResponse>;
+    syncTree: (newTree?: TreeNode[]) => Promise<AxiosResponse>;
 };
 
 const TreeContext = createContext<TreeContextType | undefined>(undefined);
 
 export function TreeProvider({ children }: { children: ReactNode }) {
-    const [tree, setTree] = useState<NodeModel<CustomData>[]>([]);
+    const [tree, setTree] = useState<TreeNode[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
 
     const fetchTreeData = async () => {
@@ -30,7 +29,7 @@ export function TreeProvider({ children }: { children: ReactNode }) {
         }
     }
     
-    const syncTree = async (newTree?: NodeModel<CustomData>[]) => {
+    const syncTree = async (newTree?: TreeNode[]) => {
         setLoading(true);
         try {
             if(newTree && newTree.length > 0) {
